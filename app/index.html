@@ -7,6 +7,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+
+
     {{content-for "head"}}
 
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
@@ -15,11 +26,20 @@
     {{content-for "head-footer"}}
   </head>
   <body>
-    {{content-for "body"}}
+   {{#if session.isAuthenticated}}
+    Welcome logged in user!
+    If you like to logout click {{#link-to 'logout'}}here{{/link-to}}
+{{else}}
+    Click here to {{#link-to 'login'}}login!{{/link-to}}
+{{/if}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/ember-send.js"></script>
 
     {{content-for "body-footer"}}
+
+
+
+    
   </body>
 </html>
